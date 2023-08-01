@@ -18,26 +18,39 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="icone.svg">
-    <title>Login</title>
+    <title>Cadastro</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Mundo Senai</h1>
-        <form action="/" method="post">
+    <div class="container">
+        <h1 class="text-center mt-5">Cadastro</h1>
+        <form action="/cadastro" method="post" class="mt-5">
             <div class="input-group mb-3">
-                <span class="input-group-text" id="sp_username"><i class="fa-solid fa-user"></i></span>
-                <input id="usuario" name="usuario" type="text" class="form-control" placeholder="Username">
+                <span class="input-group-text" id="sp_name"><i class="fa-solid fa-user"></i></span>
+                <input type="text" name="name" class="form-control" placeholder="Name">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="sp_cpf"><i class="fa-solid fa-id-card"></i></span>
+                <input type="text" name="cpf" class="form-control" placeholder="CPF">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="sp_tel"><i class="fa-solid fa-phone"></i></span>
+                <input type="text" name="tel" class="form-control" placeholder="Telefone">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="sp_email"><i class="fa-solid fa-envelope"></i></span>
+                <input type="text" name="email" class="form-control" placeholder="E-mail">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="sp_password"><i class="fa-solid fa-key"></i></span>
-                <input id="senha" name="senha" type="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="sp_confirm_password"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" name="confirmation_password" class="form-control" placeholder="Confirmation Password">
             </div>
             <div class="row">
-                <div class="col-sm-6">
-                    <input value="Login" type="submit" class="btn btn-primary">
-                </div>
-                <div class="col-sm-6 text-right">
-                    <a href="/cadastro" class="btn btn-success">Cadastre-se</a>
+                <div class="col-sm-12 text-right">
+                    <input value="Cadastro" type="submit" class="btn btn-primary">
                 </div>
             </div>
         </form>

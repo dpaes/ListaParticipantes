@@ -17,4 +17,19 @@ public class C_Pessoa {
     public String loginPessoa(@RequestParam("usuario") String usuario, @RequestParam("senha") String senha){
         return "Home/home";
     }
+
+    @GetMapping("/cadastro")
+    public String landPageCad(){
+        return "Cad_Pessoa/cad_pessoa";
+    }
+
+    @PostMapping("/cadastro")
+    public String createAccountPessoa(@RequestParam("name") String name,
+                                      @RequestParam("cpf") String cpf,
+                                      @RequestParam("tel") String tel,
+                                      @RequestParam("email") String email,
+                                      @RequestParam("password") String password,
+                                      @RequestParam("confirmation_password") String confirmation_password){
+        return "";
+    }
 }

@@ -1,5 +1,6 @@
 package com.MundoSenaiTDSN.ListaParticipantes.Controller;
 
+import com.MundoSenaiTDSN.ListaParticipantes.Service.S_Pessoa;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,12 +25,14 @@ public class C_Pessoa {
     }
 
     @PostMapping("/cadastro")
-    public String createAccountPessoa(@RequestParam("name") String name,
+    public String createAccountPessoa(@RequestParam("nome") String nome,
                                       @RequestParam("cpf") String cpf,
                                       @RequestParam("tel") String tel,
                                       @RequestParam("email") String email,
                                       @RequestParam("password") String password,
                                       @RequestParam("confirmation_password") String confirmation_password){
-        return "";
+
+        S_Pessoa.cadastrarPessoa(nome,cpf,email,tel,password);
+        return "redirect:/";
     }
 }

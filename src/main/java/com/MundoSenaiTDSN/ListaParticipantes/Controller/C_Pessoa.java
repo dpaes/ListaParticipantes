@@ -1,7 +1,9 @@
 package com.MundoSenaiTDSN.ListaParticipantes.Controller;
 
+import com.MundoSenaiTDSN.ListaParticipantes.Model.M_Resposta;
 import com.MundoSenaiTDSN.ListaParticipantes.Service.S_Pessoa;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,9 +32,17 @@ public class C_Pessoa {
                                       @RequestParam("tel") String tel,
                                       @RequestParam("email") String email,
                                       @RequestParam("password") String password,
-                                      @RequestParam("confirmation_password") String confirmation_password){
+                                      @RequestParam("confirmation_password") String confirmation_password,
+                                      Model model){
 
-        S_Pessoa.cadastrarPessoa(nome,cpf,email,tel,password,confirmation_password);
-        return "redirect:/";
+        M_Resposta m_resposta = S_Pessoa.cadastrarPessoa(nome,cpf,email,tel,password,confirmation_password);
+
+        if(m_resposta.getStatus()){
+            model.addAttribute("mensagem",m_resposta.getMensagem());
+            return "Login/login";
+        } else {
+            model.addAttribute("mensagem",m_resposta.getMensagem());
+            return "Cad_Pessoa/cad_pessoa";
+        }
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class C_Pessoa {
@@ -33,16 +34,22 @@ public class C_Pessoa {
                                       @RequestParam("email") String email,
                                       @RequestParam("password") String password,
                                       @RequestParam("confirmation_password") String confirmation_password,
-                                      Model model){
+                                      RedirectAttributes redirectAttributes){
 
         M_Resposta m_resposta = S_Pessoa.cadastrarPessoa(nome,cpf,email,tel,password,confirmation_password);
 
         if(m_resposta.getStatus()){
-            model.addAttribute("mensagem",m_resposta.getMensagem());
-            return "Login/login";
+            redirectAttributes.addFlashAttribute("mensagem",m_resposta.getMensagem());
+            return "redirect:/";
         } else {
-            model.addAttribute("mensagem",m_resposta.getMensagem());
-            return "Cad_Pessoa/cad_pessoa";
+            redirectAttributes.addFlashAttribute("mensagem",m_resposta.getMensagem());
+            redirectAttributes.addFlashAttribute("nome",nome);
+            redirectAttributes.addFlashAttribute("cpf",cpf);
+            redirectAttributes.addFlashAttribute("tel",tel);
+            redirectAttributes.addFlashAttribute("email",email);
+            redirectAttributes.addFlashAttribute("password", password);
+            redirectAttributes.addFlashAttribute("confimation_password",confirmation_password);
+            return "redirect:/cadastro";
         }
     }
 }

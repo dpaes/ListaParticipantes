@@ -1,3 +1,6 @@
 create table pessoa (id serial primary key, nome varchar(50), cpf bigint, telefone bigint, email varchar(255), senha varchar(255));
 
 alter table pessoa add constraint u_cpf unique (cpf);
+
+# COLOCAR 0 PARA TODOS OS CPFs que não tem o primeiro 0 no banco de dados.
+SELECT LPAD(cpf::varchar, 11, '0'::varchar) from pessoa;

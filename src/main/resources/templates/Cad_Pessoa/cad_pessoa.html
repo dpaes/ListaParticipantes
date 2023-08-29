@@ -7,16 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
     <link rel="icon" href="icone.svg">
     <title>Cadastro</title>
 </head>
@@ -24,44 +22,42 @@
     <div class="container">
         <div th:if="${mensagem}" th:utext="${mensagem}"></div>
         <h1 class="text-center mt-5">Cadastro</h1>
-        <form action="/cadastro" method="post" class="mt-5">
             <div class="row">
                 <div class="input-group mb-3 col-sm-8">
                     <span class="input-group-text" id="sp_name"><i class="fa-solid fa-user"></i></span>
-                    <input type="text" name="nome" class="form-control" placeholder="Name" th:value="${nome}">
+                    <input id="nome" type="text" name="nome" class="form-control" placeholder="Name" th:value="${nome}">
                 </div>
                 <div class="input-group mb-3 col-sm-4">
                     <span class="input-group-text" id="sp_cpf"><i class="fa-solid fa-id-card"></i></span>
-                    <input type="text" name="cpf" class="form-control" placeholder="CPF" th:value="${cpf}">
+                    <input id="cpf" type="text" name="cpf" class="form-control" placeholder="CPF" th:value="${cpf}">
                 </div>
 
             </div>
             <div class="row">
                 <div class="input-group mb-3 col-sm-8">
                     <span class="input-group-text" id="sp_email"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="text" name="email" class="form-control" placeholder="E-mail" th:value="${email}">
+                    <input id="email" type="text" name="email" class="form-control" placeholder="E-mail" th:value="${email}">
                 </div>
                 <div class="input-group mb-3 col-sm-4">
                     <span class="input-group-text" id="sp_tel"><i class="fa-solid fa-phone"></i></span>
-                    <input type="text" name="tel" class="form-control" placeholder="Telefone" th:value="${tel}">
+                    <input id="tel" type="text" name="tel" class="form-control" placeholder="Telefone" th:value="${tel}">
                 </div>
             </div>
             <div class="row">
                 <div class="input-group mb-3 col-sm-6">
                     <span class="input-group-text" id="sp_password"><i class="fa-solid fa-key"></i></span>
-                    <input type="password" name="password" class="form-control" placeholder="Password" th:value="${password}">
+                    <input id="senha_cad" type="password" name="password" class="form-control" placeholder="Password" th:value="${password}">
                 </div>
                 <div class="input-group mb-3 col-sm-6">
                     <span class="input-group-text" id="sp_confirm_password"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" name="confirmation_password" class="form-control" placeholder="Confirmation Password" th:value="${confirmation_password}">
+                    <input id="confirm_senha_cad" type="password" name="confirmation_password" class="form-control" placeholder="Confirmation Password" th:value="${confirmation_password}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12 text-right">
-                    <input value="Cadastro" type="submit" class="btn btn-primary">
+                    <button id="btn_submit_cad" type="submit" class="btn btn-primary">Cadastro</button>
                 </div>
             </div>
-        </form>
     </div>
 </body>
 </html>

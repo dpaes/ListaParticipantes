@@ -15,12 +15,14 @@
             crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+    <script src="scripts/validadorCPF.js" defer></script>
+    <script src="scripts/script_cad_pessoa.js" defer></script>
     <link rel="icon" href="icone.svg">
     <title>Cadastro</title>
 </head>
 <body>
     <div class="container">
-        <div th:if="${mensagem}" th:utext="${mensagem}"></div>
+        <div id="errorMessage" th:utext="${mensagem}"></div>
         <h1 class="text-center mt-5">Cadastro</h1>
             <div class="row">
                 <div class="input-group mb-3 col-sm-8">
@@ -46,16 +48,16 @@
             <div class="row">
                 <div class="input-group mb-3 col-sm-6">
                     <span class="input-group-text" id="sp_password"><i class="fa-solid fa-key"></i></span>
-                    <input id="senha_cad" type="password" name="password" class="form-control" placeholder="Password" th:value="${password}">
+                    <input id="senha" type="password" name="password" class="form-control" placeholder="Password" th:value="${password}">
                 </div>
                 <div class="input-group mb-3 col-sm-6">
                     <span class="input-group-text" id="sp_confirm_password"><i class="fa-solid fa-lock"></i></span>
-                    <input id="confirm_senha_cad" type="password" name="confirmation_password" class="form-control" placeholder="Confirmation Password" th:value="${confirmation_password}">
+                    <input id="confirm_senha" type="password" name="confirmation_password" class="form-control" placeholder="Confirmation Password" th:value="${confirmation_password}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12 text-right">
-                    <button id="btn_submit_cad" type="submit" class="btn btn-primary">Cadastro</button>
+                    <button id="btn_submit" type="submit" class="btn btn-primary">Cadastro</button>
                 </div>
             </div>
     </div>

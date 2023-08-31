@@ -1,5 +1,3 @@
-
-
 $("#submitLogin").click(function(){
     var inputUsuario = $("#usuario").val();
     var inputSenha = $("#senha").val();
